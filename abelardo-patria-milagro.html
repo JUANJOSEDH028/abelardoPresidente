@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.counterapi.dev; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Abelardo de la Espriella · El Tigre — Patria Milagro 2026</title>
+<style>
+  :root{
+    --gold:#f5a623;
+    --gold-2:#ffcf5c;
+    --navy:#0a1424;
+    --navy-2:#0f1d33;
+    --navy-3:#13263f;
+    --ink:#0a0e14;
+    --paper:#f6f7f9;
+    --muted:#8b97a8;
+    --line:rgba(255,255,255,.10);
+    --rojo:#CE1126;
+    --amarillo:#FCD116;
+    --azul:#003893;
+    --ok:#22c55e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--navy);color:#e9eef6;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{line-height:1.12;font-weight:800;letter-spacing:-.02em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  .gold{color:var(--gold)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:80;background:rgba(10,20,36,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.02em;font-size:16px}
+  .brand .tg{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--gold),#d4831a);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 14px rgba(245,166,35,.45)}
+  .nav-links{display:flex;gap:2px;flex-wrap:nowrap;overflow-x:auto;min-width:0;padding-bottom:7px;scrollbar-width:thin;scrollbar-color:var(--gold) rgba(255,255,255,.08);-webkit-overflow-scrolling:touch}
+  .nav-links::-webkit-scrollbar{height:6px}
+  .nav-links::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:10px}
+  .nav-links::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--gold),#d4831a);border-radius:10px}
+  .nav-links::-webkit-scrollbar-thumb:hover{background:var(--gold-2)}
+  .nav-links a{font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;transition:.18s;white-space:nowrap}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  @media(max-width:560px){.nav-links a{padding:8px 9px;font-size:12px}}
+
+  /* HERO */
+  header.hero{position:relative;overflow:hidden;padding:70px 0 56px}
+  .hero-glow{position:absolute;inset:0;z-index:0;background:
+    radial-gradient(circle at 80% 0%,rgba(245,166,35,.22),transparent 45%),
+    radial-gradient(circle at 10% 90%,rgba(0,56,147,.30),transparent 50%)}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:34px;align-items:center}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:26px}}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.4);color:var(--gold-2);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:30px}
+  header.hero h1{font-size:clamp(36px,7vw,68px);margin:18px 0 6px;text-shadow:0 4px 30px rgba(0,0,0,.4)}
+  header.hero h1 span{display:block;background:linear-gradient(90deg,var(--gold),var(--gold-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lema{font-size:clamp(16px,2.4vw,21px);color:#c2cee0;font-weight:600;max-width:560px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14.5px;padding:13px 22px;border-radius:12px;text-decoration:none;transition:.2s;cursor:pointer;border:0}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),#e08a12);color:#1a1205;box-shadow:0 8px 24px rgba(245,166,35,.35)}
+  .btn-gold:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:#dbe3ee}
+  .btn-ghost:hover{border-color:var(--gold);color:#fff}
+
+  /* COUNTDOWN CARD */
+  .count-card{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+  .count-card .t{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800}
+  .count-card .date{font-size:22px;font-weight:900;margin:4px 0 16px}
+  .count-card .date b{color:var(--gold)}
+  .clock{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+  .clock .u{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:12px 4px}
+  .clock .u .n{font-size:30px;font-weight:900;color:#fff;line-height:1}
+  .clock .u .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:5px}
+  .firstround{margin-top:18px;background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.35);border-radius:12px;padding:12px 14px;font-size:13px}
+  .firstround b{color:#86efac}
+
+  .scrollnote{text-align:center;margin-top:46px;font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
+  /* SECTIONS */
+  section{padding:74px 0;border-top:1px solid var(--line);position:relative}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .sec-title{font-size:clamp(26px,4.4vw,42px)}
+  .sec-intro{max-width:780px;color:#aeb9c9;font-size:16.5px;margin-top:14px}
+
+  /* QUIEN ES - timeline */
+  .bio-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;margin-top:34px;align-items:start}
+  @media(max-width:860px){.bio-grid{grid-template-columns:1fr}}
+  .bio-card{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:18px;padding:26px}
+  .bio-card h3{font-size:22px}
+  .bio-tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+  .chip{font-size:12px;font-weight:700;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:6px 12px;border-radius:20px;color:#cdd7e4}
+  .bio-card p{color:#c2cee0;font-size:14.5px;margin-top:10px}
+  .timeline{list-style:none;position:relative;padding-left:26px}
+  .timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),transparent)}
+  .timeline li{position:relative;padding:0 0 22px 8px}
+  .timeline li:before{content:"";position:absolute;left:-23px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(245,166,35,.18)}
+  .timeline .yr{font-weight:900;color:var(--gold);font-size:14px}
+  .timeline .tx{font-size:14.5px;color:#d4dce8}
+
+  /* PILARES - accordion cards */
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
+  @media(max-width:780px){.pillars{grid-template-columns:1fr}}
+  .pillar{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s}
+  .pillar:hover{border-color:rgba(245,166,35,.4)}
+  .p-head{display:flex;align-items:center;gap:14px;padding:18px 20px;cursor:pointer;user-select:none}
+  .p-head .ic{width:44px;height:44px;flex:none;border-radius:12px;background:rgba(245,166,35,.12);display:flex;align-items:center;justify-content:center;font-size:22px}
+  .p-head .ti{flex:1}
+  .p-head .ti h4{font-size:17px}
+  .p-head .ti p{font-size:12.5px;color:var(--muted)}
+  .p-head .ar{transition:.3s;color:var(--gold);font-size:20px;font-weight:900}
+  .pillar.open .ar{transform:rotate(45deg)}
+  .p-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .pillar.open .p-body{max-height:680px}
+  .p-inner{padding:0 20px 20px 20px}
+  .p-inner ul{list-style:none}
+  .p-inner li{position:relative;padding:8px 0 8px 22px;font-size:14px;color:#d4dce8;border-top:1px dashed var(--line)}
+  .p-inner li:first-child{border-top:0}
+  .p-inner li:before{content:"▸";position:absolute;left:2px;color:var(--gold)}
+  .p-quote{margin-top:14px;font-style:italic;font-size:13px;color:#c8d2df;background:rgba(245,166,35,.07);border-left:3px solid var(--gold);padding:10px 13px;border-radius:8px}
+  .p-src{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:7px;font-weight:700}
+
+  /* STAT STRIP */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+  @media(max-width:780px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+  .stat .n{font-size:30px;font-weight:900;color:var(--gold);line-height:1}
+  .stat .l{font-size:12px;color:#aeb9c9;margin-top:7px}
+
+  /* BALANCE (Petro facts) */
+  .fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:30px}
+  .fact{background:linear-gradient(160deg,#1a0e12,#241016);border:1px solid rgba(206,17,38,.3);border-left:4px solid var(--rojo);border-radius:14px;padding:20px}
+  .fact h4{font-size:16px;margin-bottom:6px;color:#ffd9dd}
+  .fact p{font-size:13.5px;color:#e6c9cd}
+  .fact .big{font-size:24px;font-weight:900;color:#ff6b7a;display:block;margin:6px 0}
+  .fact .src{font-size:11px;color:#b98a90;font-weight:700;display:block;margin-top:8px}
+
+  /* DEBT CHART */
+  .chart-wrap{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:20px;padding:30px;margin-top:30px}
+  .chart-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:26px}
+  .chart-head h3{font-size:20px}
+  .chart-head p{font-size:13px;color:var(--muted)}
+  .bars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:end;height:280px;padding:0 10px;border-bottom:2px solid var(--line)}
+  .bar-col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bar-val{font-size:18px;font-weight:900;color:#fff;margin-bottom:8px}
+  .bar{width:78%;max-width:130px;border-radius:10px 10px 0 0;position:relative;transition:height 1.2s cubic-bezier(.2,.8,.2,1);height:0}
+  .bar.b1{background:linear-gradient(180deg,#3b82f6,#1d4ed8)}
+  .bar.b2{background:linear-gradient(180deg,#f5a623,#d4831a)}
+  .bar.b3{background:linear-gradient(180deg,#ff6b7a,#ce1126)}
+  .bar-label{margin-top:12px;text-align:center}
+  .bar-label .y{font-size:15px;font-weight:800;color:#fff}
+  .bar-label .s{font-size:11.5px;color:var(--muted)}
+  .arrow-up{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:rgba(206,17,38,.12);border:1px solid rgba(206,17,38,.4);color:#ff8a96;font-weight:800;font-size:15px;padding:12px 18px;border-radius:12px}
+  .debt-notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:24px}
+  .dnote{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .dnote .nn{font-size:22px;font-weight:900;color:var(--gold)}
+  .dnote .ll{font-size:12.5px;color:#aeb9c9;margin-top:4px}
+  .dnote .src{font-size:10.5px;color:var(--muted);margin-top:6px;display:block}
+
+  /* INTERNATIONAL */
+  .intl{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  @media(max-width:820px){.intl{grid-template-columns:1fr}}
+  .intl-col{border-radius:18px;padding:24px;border:1px solid var(--line)}
+  .intl-col.bad{background:linear-gradient(160deg,#1a0e12,#22121a)}
+  .intl-col.good{background:linear-gradient(160deg,#0c1a12,#102b1c)}
+  .intl-col h3{font-size:18px;display:flex;align-items:center;gap:10px}
+  .intl-col.bad h3{color:#ff8a96}
+  .intl-col.good h3{color:#86efac}
+  .intl-col ul{list-style:none;margin-top:14px}
+  .intl-col li{font-size:14px;padding:9px 0 9px 24px;position:relative;border-top:1px dashed var(--line);color:#d4dce8}
+  .intl-col li:first-child{border-top:0}
+  .intl-col.bad li:before{content:"✕";position:absolute;left:2px;color:#ff6b7a;font-weight:800}
+  .intl-col.good li:before{content:"✓";position:absolute;left:2px;color:#4ade80;font-weight:800}
+
+  /* CEPEDA QUESTIONS */
+  .q-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:30px}
+  .qcard{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:14px;padding:20px;position:relative}
+  .qcard .prop{font-size:14.5px;color:#dbe3ee}
+  .qcard .prop b{color:#fff}
+  .qcard .ask{margin-top:14px;display:flex;gap:10px;align-items:flex-start;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.3);border-radius:10px;padding:12px}
+  .qcard .ask .qm{font-size:24px;font-weight:900;color:var(--gold);line-height:1}
+  .qcard .ask .qt{font-size:13.5px;color:#ffe1ab;font-weight:600}
+  .qcard .src{font-size:11px;color:var(--muted);margin-top:10px;display:block;font-weight:700}
+
+  /* FORMULA */
+  .formula{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:30px;background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:18px;padding:26px}
+  .formula .av{width:80px;height:80px;border-radius:16px;background:rgba(59,130,246,.15);display:flex;align-items:center;justify-content:center;font-size:34px;flex:none}
+  .formula .fx{flex:1;min-width:240px}
+  .formula h3{font-size:20px}
+  .formula .role{color:var(--gold);font-weight:700;font-size:13.5px;margin:2px 0 8px}
+  .formula p{font-size:14px;color:#c2cee0}
+
+  /* CTA */
+  .cta-final{background:linear-gradient(135deg,#1a1205,#2a1d08);border:1px solid rgba(245,166,35,.35);border-radius:22px;padding:44px;text-align:center;margin-top:30px}
+  .cta-final h2{font-size:clamp(24px,4vw,38px)}
+  .cta-final h2 .gold{display:inline}
+  .cta-final p{color:#e7d8b8;max-width:620px;margin:14px auto 0;font-size:16px}
+
+  /* SOURCES */
+  .src-list{columns:2;column-gap:30px;margin-top:22px;font-size:12.5px}
+  @media(max-width:680px){.src-list{columns:1}}
+  .src-list li{break-inside:avoid;margin-bottom:9px;list-style:none;padding-left:16px;position:relative;color:var(--muted)}
+  .src-list li:before{content:"›";position:absolute;left:0;color:var(--gold);font-weight:800}
+  .disclaimer{margin-top:28px;font-size:12px;color:#6f7c8e;border-top:1px solid var(--line);padding-top:18px;max-width:840px}
+
+  footer{text-align:center;padding:34px 20px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+  .flag-line{height:5px;width:100%;background:linear-gradient(90deg,var(--amarillo) 0 50%,var(--azul) 50% 75%,var(--rojo) 75% 100%)}
+
+  /* PER CAPITA */
+  .perhab{margin-top:24px;background:linear-gradient(135deg,#2a1d08,#1a1205);border:1px solid rgba(245,166,35,.4);border-radius:18px;padding:28px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:18px;align-items:center;text-align:center}
+  @media(max-width:760px){.perhab{grid-template-columns:1fr;gap:10px}}
+  .perhab .op{font-size:13px;color:#e7d8b8}
+  .perhab .op .v{font-size:24px;font-weight:900;color:#fff;display:block}
+  .perhab .sign{font-size:30px;font-weight:900;color:var(--gold)}
+  .perhab .res{background:rgba(245,166,35,.14);border-radius:14px;padding:16px}
+  .perhab .res .big{font-size:34px;font-weight:900;color:var(--gold-2);line-height:1.05}
+  .perhab .res .small{font-size:13px;color:#e7d8b8;margin-top:4px}
+
+  /* TRM TRACK (dolar) */
+  .trm{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .trm .step{flex:1;min-width:90px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+  .trm .step .v{font-size:20px;font-weight:900;color:#fff}
+  .trm .step .d{font-size:11px;color:var(--muted);margin-top:3px}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:24px}
+  .why{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:14px;padding:18px}
+  .why .h{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;color:#fff}
+  .why .h .n{width:30px;height:30px;border-radius:8px;background:rgba(245,166,35,.15);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;flex:none}
+  .why p{font-size:13px;color:#bcc7d6;margin-top:8px}
+  .warn{margin-top:24px;background:rgba(206,17,38,.10);border:1px solid rgba(206,17,38,.4);border-radius:14px;padding:18px 20px}
+  .warn b{color:#ff8a96}
+
+  /* NEWS LINKS */
+  a.newslink{color:var(--gold-2);text-decoration:none;border-bottom:1px dotted rgba(245,166,35,.5);font-weight:700}
+  a.newslink:hover{color:#fff;border-bottom-color:#fff}
+  .news{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+  .news a{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;transition:.18s}
+  .news a:hover{border-color:rgba(245,166,35,.5);transform:translateY(-2px)}
+  .news .med{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+  .news .hl{font-size:13.5px;color:#dbe3ee;margin-top:3px;line-height:1.35}
+  .news .ico{font-size:18px;flex:none}
+
+  /* VISITS COUNTER */
+  .visits{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:30px;padding:8px 16px;font-size:13px;font-weight:700;color:#cdd7e4;margin-bottom:16px}
+  .visits .eye{font-size:16px}
+  .visits #visitCount{color:var(--gold);font-weight:900}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="flag-line"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand"><span class="tg">🐯</span> Patria&nbsp;Milagro <span style="color:var(--gold);font-weight:700">2026</span></div>
+    <div class="nav-links">
+      <a href="#quien">Quién es El Tigre</a>
+      <a href="#plan">El Plan</a>
+      <a href="#balance">El balance real</a>
+      <a href="#deuda">La deuda</a>
+      <a href="#dolar">El dólar</a>
+      <a href="#ambiente">Fracking y minería</a>
+      <a href="#gabinete">El gabinete</a>
+      <a href="#mundo">El mundo</a>
+      <a href="#cepeda">Las preguntas</a>
+      <a href="#aida">Las fórmulas</a>
+      <a href="#fuentes">Fuentes</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="badge">🐯 El Tigre · Defensores de la Patria</span>
+        <h1>Abelardo de la Espriella <span>Patria Milagro</span></h1>
+        <p class="lema">Seguridad con autoridad, un Estado más pequeño y eficiente, y la abundancia que Colombia merece. <b style="color:#fff">De administrar la escasez a desatar la prosperidad.</b></p>
+        <div class="hero-cta">
+          <a href="#plan" class="btn btn-gold">Conoce el plan completo →</a>
+          <a href="#balance" class="btn btn-ghost">El balance del "cambio"</a>
+        </div>
+      </div>
+
+      <div class="count-card">
+        <div class="t">Segunda vuelta presidencial</div>
+        <div class="date">Domingo <b>21 de junio de 2026</b></div>
+        <div class="clock" id="clock">
+          <div class="u"><div class="n" id="dd">--</div><div class="l">Días</div></div>
+          <div class="u"><div class="n" id="hh">--</div><div class="l">Horas</div></div>
+          <div class="u"><div class="n" id="mm">--</div><div class="l">Min</div></div>
+          <div class="u"><div class="n" id="ss">--</div><div class="l">Seg</div></div>
+        </div>
+        <div class="firstround">🏆 <b>Ganó la primera vuelta</b> con <b>43,74%</b> (10.361.499 votos): la votación absoluta más alta de un candidato en primera vuelta en la historia reciente de Colombia.</div>
+      </div>
+    </div>
+    <div class="scrollnote">▼ Desliza para conocer al candidato y su propuesta</div>
+  </div>
+</header>
+
+<!-- QUIEN ES -->
+<section id="quien">
+  <div class="wrap reveal">
+    <div class="eyebrow">El candidato</div>
+    <h2 class="sec-title">¿Quién es <span class="gold">El Tigre</span>?</h2>
+    <p class="sec-intro">No es un político de carrera. Es un abogado que construyó empresa desde la provincia y que se define como "el verdadero outsider": <em>"no he vivido de la teta del Estado… no le debo nada a ningún grupo de poder."</em></p>
+
+    <div class="bio-grid">
+      <div class="bio-card">
+        <h3>Abelardo de la Espriella Otero</h3>
+        <div class="bio-tags">
+          <span class="chip">📍 Nació en Bogotá, 1978 · raíces en Montería</span>
+          <span class="chip">⚖️ Abogado · U. Sergio Arboleda</span>
+          <span class="chip">🏛️ Funda De la Espriella Lawyers (2002)</span>
+          <span class="chip">🌎 Sedes: B/quilla, Bogotá, Medellín, Miami</span>
+        </div>
+        <p>Penalista de alto perfil, empresario e independiente económicamente. Entró a la política a finales de 2025 con el movimiento <b>Defensores de la Patria</b>, con una agenda de derecha de mano firme, reducción del Estado y libre mercado, con ecos de líderes como Bukele y Milei.</p>
+        <p><b>¿Por qué "El Tigre"?</b> Empezó como apodo de la gente y él lo adoptó: refleja su carácter de provincia, espontáneo y cercano — y su mano dura contra el crimen. <em>"El tigre ruge y muerde."</em></p>
+      </div>
+
+      <div>
+        <ul class="timeline">
+          <li><span class="yr">2002</span><div class="tx">Funda <b>De la Espriella Lawyers</b>, que se expande a cuatro ciudades incluida Miami.</div></li>
+          <li><span class="yr">Carrera</span><div class="tx">Penalista reconocido; representa a políticos, militares y figuras públicas en casos de alta exposición.</div></li>
+          <li><span class="yr">Finales 2025</span><div class="tx">Lanza su candidatura presidencial con el movimiento independiente <b>Defensores de la Patria</b> y la propuesta <b>"Patria Milagro"</b>.</div></li>
+          <li><span class="yr">31 May 2026</span><div class="tx"><b>Gana la primera vuelta</b> con 43,74% (10.361.499 votos), superando a Cepeda (40,90%) — récord histórico de votación absoluta en primera vuelta.</div></li>
+          <li><span class="yr">21 Jun 2026</span><div class="tx">Segunda vuelta definitiva frente a Iván Cepeda. La decisión de país.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section id="plan">
+  <div class="wrap reveal">
+    <div class="eyebrow">El proyecto</div>
+    <h2 class="sec-title">El plan <span class="gold">"Patria Milagro"</span>, pilar por pilar</h2>
+    <p class="sec-intro">Un plan que parte de una idea clara: <b>"Colombia no es un país pobre, sino empobrecido por la corrupción, la violencia, el desgobierno y el centralismo."</b> Toca cada pilar para desplegarlo. (Citas tomadas del documento oficial PROPUESTAS-DEL-TIGRE.)</p>
+
+    <div class="pillars" id="pillars">
+
+      <div class="pillar open">
+        <div class="p-head"><div class="ic">🛡️</div><div class="ti"><h4>Seguridad</h4><p>El eje central: la paz se impone, no se negocia</p></div><div class="ar">+</div></div>
+        <div class="p-body"><div class="p-inner">
+          <ul>
+            <li>Cero negociación con criminales y desmonte de la "Paz Total".</li>
+            <li>Recuperar el control territorial y reafirmar el monopolio estatal de las armas.</li>
+            <li>Destruir las <b>330.000 hectáreas de coca</b>: fumigación, erradicación, extinción de dominio exprés y extradición.</li>
+            <li>Bloque de Búsqueda contra la Extorsión y Primera Línea con veteranos y reservistas.</li>
+            <li><b>Megacárceles</b> de máxima seguridad (modelo Bukele) y justicia rápida.</li>
+          </ul>
+          <div class="p-quote">"¡Con los criminales no habrá negociación! La Paz Total de Petro no es paz fracasada sino traición a la Patria."<span class="p-src">PROPUESTAS-DEL-TIGRE</span></div>
+        </div></div>
+      </div>
+
+      <div class="pillar">
+        <div class="p-head"><div class="ic">📈</div><div class="ti"><h4>Economía</h4><p>De administrar escasez a desatar abundancia</p></div><div class="ar">+</div></div>
+        <div class="p-body"><div class="p-inner">
+          <ul>
+            <li>Meta de crecer al <b>7% anual</b> (modelo Corea del Sur y Singapur), no al mediocre 3%.</li>
+            <li>Ordenar las finanzas: superávit fiscal primario y regla fiscal con dientes.</li>
+            <li>Reducir el tamaño del Estado hasta en una cuarta parte; ahorro de $25–30 billones/año.</li>
+            <li>Reducir la carga tributaria y los costos de energía.</li>
+            <li>"Plan Cosecha Solidaria" para matar el hambre; ecosistema pro-empresa.</li>
+          </ul>
+          <div class="p-quote">"La tarea es pasar de administrar escasez a desatar abundancia… creceremos al 7% tal como lo hicieron Corea del Sur y Singapur."<span class="p-src">PROPUESTAS-DEL-TIGRE</span></div>
+        </div></div>
+      </div>
+
+      <div class="pillar">
+        <div class="p-head"><div class="ic">🔍</div><div class="ti"><h4>Anticorrupción</h4><p>Tecnología contra el robo de lo público</p></div><div class="ar">+</div></div>
+        <div class="p-body"><div class="p-inner">
+          <ul>
+            <li>Contratación estatal en <b>blockchain</b> para 2030: datos inmodificables.</li>
+            <li>Modernizar la DIAN con <b>inteligencia artificial</b> para reducir la evasión.</li>
+            <li>"Gobierno vitrina": trazabilidad total de quién pide, ejecuta y recibe cada recurso.</li>
+            <li>Reducir la contratación directa (hoy ~60%) y eliminar +150 regímenes especiales.</li>
+            <li>Diagnóstico: la corrupción extrae ~$50 billones al año del presupuesto.</li>
+          </ul>
+          <div class="p-quote">"Que en 2030 todos los procesos de contratación estatal se realicen mediante tecnología blockchain para impedir la modificación de los datos."<span class="p-src">El Nuevo Siglo · «Patria Milagro»</span></div>
+        </div></div>
+      </div>
+
+      <div class="pillar">
+        <div class="p-head"><div class="ic">🏥</div><div class="ti"><h4>Salud</h4><p>Estabilizar primero, reformar con cabeza</p></div><div class="ar">+</div></div>
+        <div class="p-body"><div class="p-inner">
+          <ul>
+            <li><b>Plan de choque de 90 días con $10 billones</b> para pagar a EPS que cumplen, médicos y medicamentos.</li>
+            <li>Transición responsable: "preservar lo que funciona y corregir lo que colapsó".</li>
+            <li>Topes a costos de administración de EPS y arbitraje de recursos de la ADRES.</li>
+            <li>IA para monitorear autorizaciones y tiempos de atención en tiempo real.</li>
+            <li>Política de Estado en deporte y alimentación (atacar la causa raíz).</li>
+          </ul>
+          <div class="p-quote">"Con un plan de choque… en los primeros 90 días puedo estabilizar el sistema."<span class="p-src">Entrevista de salud · De la Espriella</span></div>
+        </div></div>
+      </div>
+
+      <div class="pillar">
+        <div class="p-head"><div class="ic">🎓</div><div class="ti"><h4>Educación</h4><p>Talento conectado al mundo y al empleo</p></div><div class="ar">+</div></div>
+        <div class="p-body"><div class="p-inner">
+          <ul>
+            <li><b>Universidad Virtual en Casa</b> con conectividad y computadores gratuitos.</li>
+            <li>Ciclos cortos en IA, computación cuántica y robótica con empleo en <b>14 meses</b>.</li>
+            <li>Evaluación docente y créditos blandos por mérito.</li>
+            <li>Bilingüismo obligatorio y formación para empresas de EE.UU., Europa y Asia.</li>
+            <li>Recuperar la educación cívica, la historia y los valores.</li>
+          </ul>
+          <div class="p-quote">"Ciclos cortos en tecnologías de la cuarta revolución industrial… que permitan trabajar para empresas de Estados Unidos, Europa y Asia."<span class="p-src">PROPUESTAS-DEL-TIGRE · U. Javeriana</span></div>
+        </div></div>
+      </div>
+
+      <div class="pillar">
+        <div class="p-head"><div class="ic">🌾</div><div class="ti"><h4>El campo</h4><p>Propiedad, agroindustria y empleo rural</p></div><div class="ar">+</div></div>
+        <div class="p-body"><div class="p-inner">
+          <ul>
+            <li>"Acabar la falsa reforma agraria y <b>volver propietario al campesino</b>" (titulación real).</li>
+            <li>Ampliar la frontera agrícola en <b>1,5–2 millones de hectáreas</b>: el "Matto Grosso colombiano" en la altillanura.</li>
+            <li>Más de <b>600.000 empleos rurales</b> previstos.</li>
+            <li>Escuela de Emprendedores Rurales para 100.000 jóvenes con crédito y tecnología.</li>
+            <li>Vías, riego, conectividad, agroindustria y mercados.</li>
+          </ul>
+          <div class="p-quote">"Acabar la falsa reforma agraria y volver propietario al campesino. Expandir la frontera productiva."<span class="p-src">PROPUESTAS-DEL-TIGRE</span></div>
+        </div></div>
+      </div>
+
+      <div class="pillar">
+        <div class="p-head"><div class="ic">👩</div><div class="ti"><h4>Mujer y tecnología</h4><p>Protección y oportunidades reales</p></div><div class="ar">+</div></div>
+        <div class="p-body"><div class="p-inner">
+          <ul>
+            <li>Reducir los <b>feminicidios en 40%</b>.</li>
+            <li>Formalizar <b>200.000 emprendimientos</b> liderados por mujeres.</li>
+            <li>Capacitar a <b>150.000 mujeres</b> en IA, programación, ciencia de datos y ciberseguridad.</li>
+            <li>Bootcamps con empresas para inserción laboral inmediata.</li>
+          </ul>
+          <div class="p-quote">"Capacitación de 150.000 mujeres en IA, programación, ciencia de datos y ciberseguridad."<span class="p-src">PROPUESTAS-DEL-TIGRE · U. Javeriana</span></div>
+        </div></div>
+      </div>
+
+      <div class="pillar">
+        <div class="p-head"><div class="ic">🌎</div><div class="ti"><h4>Política exterior</h4><p>Aliados fuertes y mercados prósperos</p></div><div class="ar">+</div></div>
+        <div class="p-body"><div class="p-inner">
+          <ul>
+            <li><b>"Plan Colombia II"</b>: cooperación militar y de inteligencia con <b>EE.UU. e Israel</b> (drones, IA, equipamiento).</li>
+            <li>El narcotráfico como corresponsabilidad financiera con Estados Unidos.</li>
+            <li>Integrarse a mercados dinámicos: referentes como Singapur, Taiwán e Israel.</li>
+            <li>Rechazo al régimen de Maduro; canalizar todo por Washington y la oposición democrática.</li>
+          </ul>
+          <div class="p-quote">"Una alianza estratégica con los Estados Unidos para que nos den presupuesto, nos presten los aviones… para combatir el cáncer más grande que tiene Colombia: el narcoterrorismo."<span class="p-src">Entrevista · De la Espriella</span></div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BALANCE REAL -->
+<section id="balance">
+  <div class="wrap reveal">
+    <div class="eyebrow">Sin idealismo · Solo hechos</div>
+    <h2 class="sec-title">El balance del "cambio" que <span class="gold">nunca se gestionó</span></h2>
+    <p class="sec-intro">Iván Cepeda no propone un proyecto nuevo: propone <b>continuar y profundizar</b> el gobierno de Gustavo Petro. Por eso lo justo no es debatir promesas, sino mirar resultados. Estos son hechos documentados — no opiniones.</p>
+
+    <div class="fact-grid">
+      <div class="fact">
+        <h4>🕊️ La "Paz Total" fracasó</h4>
+        <p>Su política insignia es "generalmente catalogada como un fracaso". Los grupos armados no se desmovilizaron: <b>crecieron y se fortalecieron</b>.</p>
+        <span class="big">+27.000</span>
+        <p>integrantes de grupos armados ilegales, con un crecimiento del 23,5%. En 2025: 107.924 desplazados y 128.825 confinados.</p>
+        <span class="src">BTI 2026 · PROPUESTAS-DEL-TIGRE · Crisis Group</span>
+      </div>
+
+      <div class="fact">
+        <h4>💊 La salud en caída libre</h4>
+        <p>La reforma fue rechazada por el Congreso (2024) y el gobierno intervino las EPS por decreto, lo que "empeoró la situación".</p>
+        <span class="big">25 millones</span>
+        <p>de colombianos (6 de cada 10) quedaron en EPS intervenidas. Cartera hospitalaria de <b>$24 billones</b>.</p>
+        <span class="src">BTI 2026 · ACHC · Supersalud</span>
+      </div>
+
+      <div class="fact">
+        <h4>🌾 La reforma agraria, en el papel</h4>
+        <p>La bandera de la "Revolución Agraria" — la misma que Cepeda promete profundizar — quedó muy lejos de su meta.</p>
+        <span class="big">6,6%</span>
+        <p>de la meta pactada de tierras se había completado a casi tres años. La propia ministra admitió que los 3 millones de hectáreas eran "casi imposibles".</p>
+        <a class="src" style="color:#ff9aa3" href="https://www.larepublica.co/economia/a-casi-tres-anos-la-reforma-agraria-solo-ha-completado-6-6-de-la-meta-pactada-4218984" target="_blank" rel="noopener">La República ↗</a>
+      </div>
+
+      <div class="fact">
+        <h4>🏥 El hospital de La Guajira</h4>
+        <p>Anunciado en 2024 con una donación de Emiratos de ~US$40 millones para 800.000 personas. El rector de la U. de La Guajira: <em>"Creo que ya no va".</em></p>
+        <span class="big">$0</span>
+        <p>ejecutado: quedó "en veremos" por incompatibilidad del modelo de donación.</p>
+        <span class="src">La FM, junio 2026</span>
+      </div>
+
+      <div class="fact">
+        <h4>💸 El escándalo de la UNGRD</h4>
+        <p>Carrotanques que no servían para La Guajira destaparon un esquema de sobornos a congresistas para aprobar reformas.</p>
+        <span class="big">$380.000M</span>
+        <p>en irregularidades. Imputados: el exministro Bonilla, Carlos Ramón González (asilado en Nicaragua) y Sandra Ortiz.</p>
+        <span class="src">Wikipedia · Valora Analitik</span>
+      </div>
+
+      <div class="fact">
+        <h4>🚫 Pacientes sin medicamentos</h4>
+        <p>Encuesta de la Defensoría (3.449 personas): el <b>90% no recibió o recibió parcial y tarde</b> sus medicamentos.</p>
+        <span class="big">2.436</span>
+        <p>fallecimientos asociados a barreras evitables en pacientes con enfermedades huérfanas.</p>
+        <span class="src">Defensoría del Pueblo · PROPUESTAS-DEL-TIGRE</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">312.000+</div><div class="l">tutelas de salud radicadas en 2025</div></div>
+      <div class="stat"><div class="n">1.039.606</div><div class="l">reclamos ante Supersalud (1.er sem. 2025)</div></div>
+      <div class="stat"><div class="n">651</div><div class="l">secuestros y 12.180 extorsiones en 2025</div></div>
+      <div class="stat"><div class="n">−9,5%</div><div class="l">cayó la inversión privada en 2023</div></div>
+    </div>
+
+    <p class="sec-intro" style="margin-top:30px;font-size:14px">📌 Cada afirmación de arriba está respaldada por medios y entidades serias. Verifícalo tú mismo:</p>
+    <div class="news">
+      <a href="https://www.larepublica.co/especiales/el-poder-de-las-ciudades-capitales/eduardo-pizarro-leongomez-aseguro-que-la-paz-total-fracaso-4359660" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">La República</span><span class="hl">"La Paz Total fracasó y crecieron los grupos armados" (E. Pizarro Leongómez)</span></span></a>
+      <a href="https://www.eltiempo.com/politica/congreso/reforma-de-la-salud-se-hundio-definitivamente-en-el-senado-3338513" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Tiempo</span><span class="hl">"La reforma de la salud se hundió definitivamente en el Senado"</span></span></a>
+      <a href="https://www.larepublica.co/economia/a-casi-tres-anos-la-reforma-agraria-solo-ha-completado-6-6-de-la-meta-pactada-4218984" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">La República</span><span class="hl">"A casi tres años, la reforma agraria solo ha completado 6,6% de la meta"</span></span></a>
+      <a href="https://www.lasillavacia.com/silla-nacional/lo-que-se-sabe-y-lo-que-no-en-el-caso-de-corrupcion-de-la-ungrd/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">La Silla Vacía</span><span class="hl">"Todo lo que se sabe del caso de corrupción de la UNGRD"</span></span></a>
+      <a href="https://www.infobae.com/colombia/2025/04/04/escandalo-ungrd-fiscalia-revelo-como-olmedo-lopez-sneyder-pinilla-y-altos-funcionarios-del-gobierno-se-repartian-sobornos-de-los-contratos/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Infobae</span><span class="hl">"La Fiscalía reveló cómo se repartían los sobornos de la UNGRD"</span></span></a>
+      <a href="https://www.infobae.com/colombia/2025/01/14/nicolas-petro-enfrentara-juicio-por-presunto-lavado-de-activos-y-enriquecimiento-ilicito/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Infobae</span><span class="hl">"Nicolás Petro enfrentará juicio por lavado de activos y enriquecimiento ilícito"</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- DEUDA -->
+<section id="deuda">
+  <div class="wrap reveal">
+    <div class="eyebrow">La cuenta de cobro</div>
+    <h2 class="sec-title">La deuda externa que <span class="gold">recibió Petro… y como la deja</span></h2>
+    <p class="sec-intro">El "cambio" no se financió con más producción, sino con más deuda. La deuda externa de Colombia subió año tras año durante el gobierno Petro. Cifras del Banco de la República y el BTI Transformation Index.</p>
+
+    <div class="chart-wrap">
+      <div class="chart-head">
+        <div><h3>Deuda externa de Colombia (miles de millones de USD)</h3><p>Petro asumió en agosto de 2022</p></div>
+        <p style="text-align:right">Fuente: Banco de la República · BTI 2026</p>
+      </div>
+
+      <div class="bars" id="bars">
+        <div class="bar-col">
+          <div class="bar-val">US$184,4 B</div>
+          <div class="bar b1" data-h="73"></div>
+          <div class="bar-label"><div class="y">2022</div><div class="s">Recibió el gobierno</div></div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-val">US$197,5 B</div>
+          <div class="bar b2" data-h="89"></div>
+          <div class="bar-label"><div class="y">2023</div><div class="s">Primer año completo</div></div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-val">US$201,8 B</div>
+          <div class="bar b3" data-h="100"></div>
+          <div class="bar-label"><div class="y">2024</div><div class="s">Último dato (dic.)</div></div>
+        </div>
+      </div>
+
+      <div style="text-align:center">
+        <span class="arrow-up">↑ +US$17.357 millones más de deuda externa en el gobierno del "cambio"</span>
+      </div>
+
+      <div class="debt-notes">
+        <div class="dnote"><div class="nn">64,7%</div><div class="ll">del PIB llegó a ser la deuda bruta del Gobierno en 2025</div><span class="src">U. Javeriana · Contraloría</span></div>
+        <div class="dnote"><div class="nn">6,4%</div><div class="ll">del PIB de déficit fiscal en 2025 — uno de los más altos del siglo, sin contar la pandemia</div><a class="src" style="color:#8b97a8" href="https://www.valoraanalitik.com/confirmado-deficit-fiscal-de-colombia-en-2025-llego-a-64-del-pib-el-segundo-mas-alto-del-siglo-sin-contar-la-pandemia/" target="_blank" rel="noopener">Valora Analitik · MinHacienda ↗</a></div>
+        <div class="dnote"><div class="nn">US$4.950M</div><div class="ll">la emisión de deuda externa más grande de la historia del país (enero 2026)</div><span class="src">El Colombiano</span></div>
+        <div class="dnote"><div class="nn">Negativo</div><div class="ll">Moody's pasó la perspectiva de "estable" a "negativa" (2024); ya sin grado de inversión en S&P y Fitch desde 2021</div><span class="src">BTI 2026</span></div>
+      </div>
+    </div>
+    <h3 style="font-size:20px;margin-top:40px">Y si repartimos esa deuda entre todos… <span class="gold">¿cuánto le toca a cada colombiano?</span></h3>
+    <p class="sec-intro" style="margin-top:8px">Símil ilustrativo: la deuda externa total dividida entre la población del país (proyección DANE ~52,7 millones, 2025).</p>
+    <div class="perhab">
+      <div class="op"><span class="v">US$201.760M</span>Deuda externa total (2024)</div>
+      <div class="sign">÷</div>
+      <div class="op"><span class="v">52,7M</span>Habitantes (DANE 2025)</div>
+      <div class="sign">=</div>
+      <div class="res"><div class="big">≈ US$3.828</div><div class="small">por cada colombiano · <b>unos $13,8 millones de pesos</b> (TRM ~$3.600)</div></div>
+    </div>
+    <p class="sec-intro" style="margin-top:14px">Cada bebé que nace en Colombia llega al mundo, en la práctica, debiendo cerca de <b style="color:#fff">$14 millones de pesos</b> en deuda externa. Eso es lo que financia el "cambio".</p>
+
+    <p class="sec-intro" style="margin-top:22px">Más deuda con menos inversión privada y menos producción es la receta del empobrecimiento. La pregunta para el votante: <b style="color:#fff">¿queremos cuatro años más de la misma cuenta de cobro?</b></p>
+
+    <div class="news">
+      <a href="https://www.elcolombiano.com/negocios/emision-deuda-externa-colombia-historica-enero-2026-OC32476923" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Colombiano</span><span class="hl">"Colombia dispara su deuda externa con histórica emisión de bonos por casi US$5.000 millones"</span></span></a>
+      <a href="https://www.valoraanalitik.com/confirmado-deficit-fiscal-de-colombia-en-2025-llego-a-64-del-pib-el-segundo-mas-alto-del-siglo-sin-contar-la-pandemia/" target="_blank" rel="noopener"><span class="ico">📊</span><span><span class="med">Valora Analitik</span><span class="hl">"Déficit fiscal de Colombia en 2025 llegó a 6,4% del PIB, el segundo más alto del siglo sin pandemia"</span></span></a>
+      <a href="https://www.bti-project.org/en/reports/country-report/COL" target="_blank" rel="noopener"><span class="ico">📊</span><span><span class="med">BTI 2026</span><span class="hl">Country Report Colombia — indicadores de deuda externa y pública por año</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- DOLAR -->
+<section id="dolar">
+  <div class="wrap reveal">
+    <div class="eyebrow">El mito del "peso fuerte"</div>
+    <h2 class="sec-title">¿Por qué está barato el dólar? <span class="gold">(Spoiler: no es por buena gestión)</span></h2>
+    <p class="sec-intro">El gobierno presume del dólar bajo como si fuera un logro. Pero los analistas son contundentes: el peso fuerte <b style="color:#fff">"responde más a factores externos y técnicos que a una mejora en los fundamentales económicos del país"</b> (Corficolombiana). De hecho, una de las razones es… ¡que el gobierno está vendiendo deuda récord!</p>
+
+    <div class="trm">
+      <div class="step"><div class="v">~$5.000</div><div class="d">Hace 3 años (2022-2023)</div></div>
+      <div class="step"><div class="v">$3.700</div><div class="d">Enero 2026, tras emisión de bonos</div></div>
+      <div class="step"><div class="v">$3.565</div><div class="d">Junio 2026, tras ganar El Tigre 1.ª vuelta</div></div>
+    </div>
+
+    <div class="why-grid">
+      <div class="why"><div class="h"><span class="n">1</span> La deuda récord</div><p>El gobierno emitió <b>US$4.950 millones</b> en bonos (la mayor de la historia) y los monetizó para tapar el déficit. Esos dólares inundan el mercado y abaratan la divisa. El dólar baja… porque nos endeudamos más.</p></div>
+      <div class="why"><div class="h"><span class="n">2</span> El "carry trade"</div><p>Colombia es el <b>único de las 5 grandes economías de Latinoamérica</b> que sube tasas en 2026. El capital golondrina entra por la alta rentabilidad, no porque confíe en el país.</p></div>
+      <div class="why"><div class="h"><span class="n">3</span> Dólar global débil</div><p>El dólar mundial se debilitó <b>9,4%</b> con los recortes de la Fed. Corficolombiana estima que <b>el 70–80%</b> del movimiento del peso es de origen externo.</p></div>
+      <div class="why"><div class="h"><span class="n">4</span> Remesas récord</div><p>Por temor a las deportaciones de Trump, los colombianos en EE.UU. enviaron <b>+US$9.000 millones</b>. Hoy entran más dólares por remesas que por petróleo.</p></div>
+      <div class="why"><div class="h"><span class="n">5</span> El "efecto Tigre"</div><p>Tras la victoria de <b>De la Espriella</b> en primera vuelta, el dólar se desplomó a $3.565 (mínimo en 5 años): el mercado premió un escenario promercado.</p></div>
+      <div class="why"><div class="h"><span class="n">6</span> El petróleo</div><p>Cuando sube el Brent, entran más dólares por exportaciones y el dólar baja. Un factor de mercado, no de política económica.</p></div>
+    </div>
+
+    <div class="warn">⚠️ <b>La trampa:</b> los expertos advierten que esta bonanza es "transitoria". Con un déficit desfinanciado en ~$20 billones, <b>un choque de desconfianza política podría disparar una depreciación de más del 20%</b> y llevar el dólar por encima de $4.500, como en 2022. El peso fuerte de hoy no es solidez: es un castillo de naipes sobre deuda.</div>
+
+    <div class="news">
+      <a href="https://www.bloomberglinea.com/latinoamerica/colombia/la-trampa-del-carry-trade-por-que-el-peso-colombiano-enfrenta-riesgos-por-su-apreciacion-en-2026/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Bloomberg Línea</span><span class="hl">"La trampa del carry trade: por qué el peso enfrenta riesgos por su apreciación en 2026"</span></span></a>
+      <a href="https://www.elcolombiano.com/negocios/emision-deuda-bonos-externos-bajo-el-dolar-OE32508134" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Colombiano</span><span class="hl">"¿Por qué cae el dólar? El impacto de la histórica emisión de deuda externa por US$4.950 millones"</span></span></a>
+      <a href="https://www.elcolombiano.com/negocios/precio-dolar-colombia-cae-53-pesos-niveles-junio-2021-recortes-fed-y-bonos-deuda-BN32481198" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Colombiano</span><span class="hl">"El dólar se desplomó $53 y regresó a niveles que no se veían desde junio de 2021"</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIENTE: FRACKING vs MINERIA ILEGAL -->
+<section id="ambiente">
+  <div class="wrap reveal">
+    <div class="eyebrow">El verdadero desastre ambiental</div>
+    <h2 class="sec-title">Prohibir el fracking <span class="gold">no salvó el medio ambiente</span></h2>
+    <p class="sec-intro">El gobierno satanizó el fracking y frenó la exploración… mientras el <b>verdadero</b> desastre ambiental crecía sin control: la <b>minería ilegal</b> de los grupos armados, que envenena ríos con mercurio y arrasa la selva. Prohibir lo regulado y dejar crecer lo criminal es la peor ecuación posible.</p>
+
+    <div class="intl">
+      <div class="intl-col bad">
+        <h3>✕ Lo que SÍ destruye hoy: la minería ilegal</h3>
+        <ul>
+          <li><b>Mercurio en los ríos:</b> la minería ilegal contamina las fuentes hídricas del <b>Pacífico y la Amazonía</b> con mercurio tóxico, con graves daños a la salud.</li>
+          <li><b>Deforestación +40%:</b> la tasa volvió a subir 40% en el primer semestre de 2024, impulsada por la minería de oro ilegal y los cultivos ilícitos.</li>
+          <li><b>Financia a los armados:</b> el oro ilegal se disparó y hoy es una de las principales rentas de los grupos armados (ELN, EMC, Clan del Golfo).</li>
+          <li><b>Regiones arrasadas:</b> Antioquia, Cauca, Nariño y Chocó, con suelos degradados y ecosistemas fragmentados.</li>
+          <li><b>Sin regulación, sin tecnología, sin control:</b> es destrucción pura, sin un solo estándar ambiental.</li>
+        </ul>
+      </div>
+
+      <div class="intl-col good">
+        <h3>✓ Lo regulado: hidrocarburos y fracking responsable</h3>
+        <ul>
+          <li><b>Con tecnología y control:</b> el plan propone el fracking <b>"bajo monitoreo técnico estricto y protección de acuíferos"</b> — no a ciegas.</li>
+          <li><b>Recuperar la exploración</b> de petróleo y gas con seguridad jurídica y criterio técnico; gas estratégico y proyectos costa afuera.</li>
+          <li><b>Energía = ingresos:</b> financia al Estado con producción, en vez de con más deuda externa.</li>
+          <li><b>Matriz complementaria:</b> solar, eólica y geotermia (La Guajira), sin destruir el empleo tradicional.</li>
+          <li><b>Autoridad ambiental real:</b> recuperar la soberanía del territorio para erradicar la deforestación de origen criminal.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warn" style="background:rgba(245,166,35,.08);border-color:rgba(245,166,35,.4)">💡 <b style="color:var(--gold-2)">El punto clave:</b> el debate no es "extraer o no extraer". Es <b>extracción regulada, con tecnología y vigilancia</b> (que genera empleo, regalías e ingresos para el Estado) frente a la <b>extracción criminal de los grupos armados</b> (que no paga impuestos, no respeta una sola norma ambiental y mata la selva). Quien de verdad quiere proteger el ambiente, primero acaba con la minería ilegal — con autoridad.</div>
+
+    <div class="news">
+      <a href="https://acleddata.com/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">ACLED</span><span class="hl">"La paradoja de la 'Paz Total': la violencia bajó pero los grupos armados se fortalecieron"</span></span></a>
+      <a href="https://www.bti-project.org/en/reports/country-report/COL" target="_blank" rel="noopener"><span class="ico">📊</span><span><span class="med">BTI 2026</span><span class="hl">"La deforestación subió 40% en el primer semestre de 2024, impulsada por la minería de oro"</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- GABINETE: ROTACION -->
+<section id="gabinete">
+  <div class="wrap reveal">
+    <div class="eyebrow">Promete, pero no cumple</div>
+    <h2 class="sec-title">El gabinete que <span class="gold">nunca dura</span></h2>
+    <p class="sec-intro">No se puede gobernar un país cambiando de equipo cada tres semanas. El gobierno Petro tiene la <b>rotación de ministros más alta en proporción al tiempo desde la Constitución de 1991</b>. Es el síntoma perfecto de un proyecto que promete mucho y ejecuta poco. Datos de medios serios:</p>
+
+    <div class="stats">
+      <div class="stat"><div class="n">65</div><div class="l">ministros han pasado por el gobierno (+134 viceministros)</div></div>
+      <div class="stat"><div class="n">cada 19 días</div><div class="l">cambia un ministro, en promedio</div></div>
+      <div class="stat"><div class="n">11,1</div><div class="l">meses dura un ministro en el cargo (promedio)</div></div>
+      <div class="stat"><div class="n">2025</div><div class="l">Petro despidió a TODO su gabinete en plena crisis</div></div>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-head">
+        <div><h3>Ministros por presidente</h3><p>Petro: 57 en apenas 3 años (récord de rotación relativa desde 1991)</p></div>
+        <p style="text-align:right">Fuente: Infobae · El Tiempo · El Colombiano</p>
+      </div>
+      <div class="bars" id="gabBars">
+        <div class="bar-col">
+          <div class="bar-val">37</div>
+          <div class="bar b1" data-h="57" style="height:0"></div>
+          <div class="bar-label"><div class="y">Uribe</div><div class="s">en 8 años</div></div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-val">40</div>
+          <div class="bar b1" data-h="62" style="height:0"></div>
+          <div class="bar-label"><div class="y">Duque</div><div class="s">en 4 años</div></div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-val">61</div>
+          <div class="bar b2" data-h="94" style="height:0"></div>
+          <div class="bar-label"><div class="y">Santos</div><div class="s">en 8 años</div></div>
+        </div>
+        <div class="bar-col">
+          <div class="bar-val">65</div>
+          <div class="bar b3" data-h="100" style="height:0"></div>
+          <div class="bar-label"><div class="y">Petro</div><div class="s">¡en ~3,8 años!</div></div>
+        </div>
+      </div>
+      <div style="text-align:center"><span class="arrow-up">↑ Petro igualó en menos de 4 años lo que otros hicieron en 8 — sin terminar su mandato</span></div>
+    </div>
+
+    <p class="sec-intro" style="margin-top:22px">El Ministerio de Justicia pasó por <b>6 titulares</b>. Tras los escándalos del "niñeragate", Petro reemplazó perfiles técnicos por aliados políticos para conseguir votos en el Congreso. <b style="color:#fff">Un gobierno sin equipo estable es un gobierno sin rumbo</b> — y eso es lo que Cepeda propone continuar.</p>
+
+    <div class="news">
+      <a href="https://www.elcolombiano.com/colombia/petro-rotacion-ministros-viceministros-gobierno-PH35892836" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Colombiano</span><span class="hl">"Los últimos 100 días de Petro: 65 ministros y 134 viceministros han pasado por el Gobierno"</span></span></a>
+      <a href="https://www.infobae.com/colombia/2025/08/07/gustavo-petro-impuso-marca-historica-van-57-ministros-en-sus-tres-anos-de-gobierno/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Infobae</span><span class="hl">"Gustavo Petro impuso marca histórica: van 57 ministros en sus tres años de Gobierno"</span></span></a>
+      <a href="https://www.eltiempo.com/politica/gobierno/gustavo-petro-ha-tenido-57-ministros-en-tres-anos-de-gobierno-asi-han-sido-los-cambios-de-gabinete-en-la-administracion-con-mas-relevos-3478803" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Tiempo</span><span class="hl">"La administración con más relevos: así han sido los cambios de gabinete de Petro"</span></span></a>
+      <a href="https://www.infobae.com/colombia/2025/09/05/la-rotacion-sin-fin-el-inestable-gabinete-de-petro-cambia-en-promedio-un-ministro-cada-19-dias/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Infobae</span><span class="hl">"La rotación sin fin: el gabinete de Petro cambia, en promedio, un ministro cada 19 días"</span></span></a>
+      <a href="https://www.elespectador.com/politica/gobierno-petro-hizo-20-cambios-en-el-gabinete-este-2025-van-57-ministros-en-todo-el-mandato-noticias-hoy/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Espectador</span><span class="hl">"Gobierno Petro hizo 20 cambios en el gabinete solo en 2025"</span></span></a>
+      <a href="https://www.larepublica.co/especiales/los-ultimos-100-dias-de-petro/la-administracion-del-presidente-gustavo-petro-dejo-una-rotacion-de-65-ministros-y-134-viceministros-4379843" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">La República</span><span class="hl">"La administración de Petro dejó una rotación de 65 ministros y 134 viceministros"</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MUNDO -->
+<section id="mundo">
+  <div class="wrap reveal">
+    <div class="eyebrow">Colombia y el mundo</div>
+    <h2 class="sec-title">Del <span class="gold">aislamiento</span> al regreso de los aliados</h2>
+    <p class="sec-intro">La política exterior define la inversión, el comercio y la seguridad. El contraste entre el rumbo de Petro (que Cepeda continuaría) y la propuesta de De la Espriella no podría ser más claro.</p>
+
+    <div class="intl">
+      <div class="intl-col bad">
+        <h3>✕ El rumbo Petro–Cepeda</h3>
+        <ul>
+          <li><b>Ruptura con Estados Unidos:</b> crisis por vuelos de deportación (2025), amenaza de aranceles del 25–50%, <b>descertificación</b> antidrogas y sanciones del Tesoro (lista SDN) a Petro y su entorno.</li>
+          <li><b>Visa revocada</b> a Petro tras pedirle a soldados de EE.UU. "desobedecer las órdenes de Trump".</li>
+          <li><b>Suspensión de ayuda exterior</b> de EE.UU., que aportaba el 70,6% de la ayuda humanitaria y el 42% de los fondos de paz.</li>
+          <li><b>Ruptura con Israel</b> (2024): fin de relaciones, freno a compra de armamento y respaldo a la demanda contra Israel en la CIJ.</li>
+          <li><b>Acercamiento a la Venezuela de Maduro</b> y giro hacia China (Franja y Ruta, banco de los BRICS).</li>
+          <li><b>Fuga de inversión:</b> la IED cayó y la inversión privada se contrajo por la incertidumbre.</li>
+        </ul>
+      </div>
+
+      <div class="intl-col good">
+        <h3>✓ La propuesta de El Tigre</h3>
+        <ul>
+          <li><b>"Plan Colombia II"</b>: cooperación estratégica con EE.UU. e Israel en seguridad, inteligencia y tecnología militar.</li>
+          <li>Tratar el narcotráfico como <b>corresponsabilidad</b> con EE.UU.: presupuesto y equipos para erradicar el narcoterrorismo.</li>
+          <li>Insertar a Colombia en los <b>mercados más prósperos</b>, con Singapur, Taiwán e Israel como referentes.</li>
+          <li>Seguridad jurídica y democrática para <b>atraer inversión global</b>.</li>
+          <li>Rechazo frontal al régimen de Maduro; diplomacia con la oposición democrática.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="news">
+      <a href="https://www.infobae.com/colombia/2024/05/01/el-presidente-petro-anuncia-que-a-partir-del-2-de-mayo-se-rompen-relaciones-diplomaticas-con-israel/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Infobae</span><span class="hl">"Petro anuncia que a partir del 2 de mayo se rompen relaciones diplomáticas con Israel"</span></span></a>
+      <a href="https://cnnespanol.cnn.com/2024/05/01/colombia-rompera-relaciones-diplomaticas-con-israel-petro-orix" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">CNN en Español</span><span class="hl">"Petro anuncia que Colombia romperá relaciones diplomáticas con Israel"</span></span></a>
+      <a href="https://www.elnuevosiglo.com.co/internacional/eeuu-incluye-petro-alcocer-y-benedetti-en-lista-clinton" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Nuevo Siglo</span><span class="hl">"EE.UU. mete a Petro, su esposa, su hijo y Benedetti en la lista Clinton (OFAC)"</span></span></a>
+      <a href="https://www.infobae.com/colombia/2026/02/04/gustavo-petro-aun-esta-en-la-lista-clinton-compartieron-ultima-version-de-la-ofac-en-medio-de-la-reunion-con-donald-trump/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Infobae</span><span class="hl">"Petro aún está en la lista Clinton de la OFAC; EE.UU. descertificó a Colombia"</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CEPEDA: PREGUNTAS -->
+<section id="cepeda">
+  <div class="wrap reveal">
+    <div class="eyebrow">Lo que falta por responder</div>
+    <h2 class="sec-title">Cepeda promete… <span class="gold">¿pero cómo lo hará?</span></h2>
+    <p class="sec-intro">Las propuestas de Cepeda suenan bien en el papel. Pero detrás de cada una hay una pregunta que el gobierno del que viene <b>nunca logró responder con hechos</b>. No basta con la buena intención.</p>
+
+    <div class="q-grid">
+      <div class="qcard">
+        <div class="prop"><b>Salud gratuita</b> para toda la población vulnerable y rural, sin EPS privadas.</div>
+        <div class="ask"><div class="qm">?</div><div class="qt">¿Con qué recursos, si el sistema ya arrastra $24 billones de deuda y la intervención estatal de EPS empeoró el servicio?</div></div>
+        <span class="src">Pulzo · BTI 2026</span>
+      </div>
+
+      <div class="qcard">
+        <div class="prop"><b>"Salario mínimo vital"</b> defendido con movilización en las calles.</div>
+        <div class="ask"><div class="qm">?</div><div class="qt">¿Cómo se sostiene sin destruir empleo formal, cuando la informalidad ya es del 43,7% urbana y 83,3% rural?</div></div>
+        <span class="src">PROPUESTAS-DEL-TIGRE · U. Javeriana</span>
+      </div>
+
+      <div class="qcard">
+        <div class="prop"><b>"Revolución Agraria"</b> con redistribución de tierras y compra estatal de cosechas.</div>
+        <div class="ask"><div class="qm">?</div><div class="qt">¿Cómo, si en casi cuatro años solo se cumplió el 6,6% de la meta de tierras del mismo proyecto?</div></div>
+        <span class="src">Análisis U. Javeriana</span>
+      </div>
+
+      <div class="qcard">
+        <div class="prop"><b>"Seguridad Humana"</b> basada en el diálogo y atacar las causas sociales.</div>
+        <div class="ask"><div class="qm">?</div><div class="qt">¿No es la misma lógica de la "Paz Total", con la que los grupos armados crecieron un 23,5%?</div></div>
+        <span class="src">Caracol Radio · BTI 2026</span>
+      </div>
+
+      <div class="qcard">
+        <div class="prop"><b>Más intervención del Estado</b> y un "Banco del Pueblo".</div>
+        <div class="ask"><div class="qm">?</div><div class="qt">¿Con qué plata, si el déficit fiscal llegó al 6,4% del PIB y la deuda externa ya subió US$17.357 millones?</div></div>
+        <span class="src">U. Javeriana · Banco de la República</span>
+      </div>
+
+      <div class="qcard">
+        <div class="prop"><b>Transición energética</b> con veto al fracking y a la exploración.</div>
+        <div class="ask"><div class="qm">?</div><div class="qt">¿Cómo se reemplazan los ingresos del petróleo, si frenar contratos ya hundió la inversión privada un 9,5%?</div></div>
+        <span class="src">BTI 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AIDA vs RESTREPO -->
+<section id="aida">
+  <div class="wrap reveal">
+    <div class="eyebrow">Las fórmulas frente a frente</div>
+    <h2 class="sec-title">La Vicepresidencia es <span class="gold">la antesala de la Presidencia</span></h2>
+    <p class="sec-intro">Un vicepresidente puede asumir la jefatura del Estado en cualquier momento. Por eso su idoneidad —su preparación real para gobernar— no es un detalle: es una garantía para el país. Y aquí el contraste no podría ser más grande.</p>
+
+    <blockquote style="margin-top:28px;background:linear-gradient(135deg,#241016,#1a0e12);border-left:4px solid var(--rojo);border-radius:14px;padding:26px 28px">
+      <p style="font-size:clamp(18px,2.7vw,25px);font-weight:800;color:#fff;line-height:1.32">"Los que se graduaron en las mejores universidades del país… lo único que aprendieron fue a robarse la plata del pueblo."</p>
+      <p style="margin-top:14px;color:#e6c9cd;font-size:14px">— <b>Aída Quilcué</b>, fórmula vicepresidencial de Iván Cepeda · Yopal, Casanare · 25 de mayo de 2026</p>
+    </blockquote>
+
+    <p class="sec-intro" style="margin-top:16px">La frase provocó un rechazo masivo de estudiantes, académicos y familias de todo el país. <b style="color:#fff">Descalificar a quienes estudian y se esfuerzan no es un programa de gobierno: es resentimiento.</b> ¿Así se le habla a los millones de colombianos que trabajan toda una vida para que sus hijos se profesionalicen? Ante las críticas, Quilcué matizó que se refería "a la clase política que gobernó 230 años" y no a los jóvenes — pero la frase, y lo que revela, ya estaban dichas.</p>
+
+    <div class="news">
+      <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/critican-a-aida-quilcue-candidata-vicepresidencial-por-decir-que-graduados-de-mejores-universidades-aprendieron-a-robarse-la-plata-del-pueblo-3558983" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">El Tiempo</span><span class="hl">"Critican a Aída Quilcué por decir que los graduados de las mejores universidades 'aprendieron a robarse la plata del pueblo'"</span></span></a>
+      <a href="https://www.semana.com/confidenciales/articulo/aida-quilcue-dice-que-quienes-se-graduaron-en-las-mejores-universidades-del-pais-lo-unico-que-nos-dejaron-fue-robarse-la-plata-del-pueblo/202622/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Semana</span><span class="hl">"Aída Quilcué dice que quienes se graduaron en las mejores universidades 'solo dejaron robarse la plata del pueblo'"</span></span></a>
+      <a href="https://www.vanguardia.com/politica/elecciones/2026/05/28/duras-criticas-a-aida-quilcue-por-arremeter-contra-graduados-de-mejores-universidades-aprendieron-fue-a-robar/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Vanguardia</span><span class="hl">"Duras críticas a Aída Quilcué por arremeter contra graduados de las mejores universidades"</span></span></a>
+      <a href="https://www.infobae.com/colombia/2026/05/28/aida-quilcue-respondio-a-criticas-tras-llamar-ladrones-a-graduados-de-universidades-privadas-quien-dijo-que-me-referia-a-los-jovenes/" target="_blank" rel="noopener"><span class="ico">📰</span><span><span class="med">Infobae</span><span class="hl">"Aída Quilcué respondió a las críticas: '¿Quién dijo que me refería a los jóvenes?'"</span></span></a>
+    </div>
+
+    <h3 style="font-size:22px;margin-top:42px">Experiencia comparada: ¿quién está listo para gobernar?</h3>
+    <p class="sec-intro" style="margin-top:8px">No se trata de menospreciar la lucha social —que es valiosa—, sino de preguntarnos con honestidad: si la fórmula tuviera que asumir mañana la Presidencia y el manejo de una economía de más de US$400 mil millones, ¿quién está preparado?</p>
+
+    <div class="intl" style="margin-top:18px">
+      <div class="bio-card" style="border-color:rgba(59,130,246,.4)">
+        <h3>🎓 José Manuel Restrepo</h3>
+        <div class="bio-tags">
+          <span class="chip">Fórmula de Abelardo de la Espriella</span>
+        </div>
+        <ul class="p-inner" style="list-style:none;padding:0;margin-top:6px">
+          <li style="border:0;padding-left:22px">Economista de la U. del Rosario · <b>Maestría en la London School of Economics</b> · Doctorado (U. de Bath).</li>
+          <li style="padding-left:22px"><b>Ministro de Hacienda (2021-2022)</b> y Ministro de Comercio (2018-2021).</li>
+          <li style="padding-left:22px">Rector de la U. del Rosario, el CESA y la U. EIA.</li>
+          <li style="padding-left:22px">Manejó la economía nacional en la pandemia y el estallido social; sacó la Ley de Inversión Social por consenso.</li>
+        </ul>
+      </div>
+      <div class="bio-card" style="border-color:rgba(206,17,38,.4)">
+        <h3>🪶 Aída Quilcué</h3>
+        <div class="bio-tags">
+          <span class="chip">Fórmula de Iván Cepeda</span>
+        </div>
+        <ul class="p-inner" style="list-style:none;padding:0;margin-top:6px">
+          <li style="border:0;padding-left:22px">Lideresa indígena Nasa del Cauca y defensora de DD.HH.</li>
+          <li style="padding-left:22px">Formación comunitaria y organizativa; <b>cursó hasta noveno grado</b> de bachillerato.</li>
+          <li style="padding-left:22px">Senadora (MAIS) desde 2022 · ex Consejera Mayor del CRIC · Premio Nacional de DD.HH. 2021.</li>
+          <li style="padding-left:22px">Sin experiencia en el manejo económico ni en la gestión del Estado a nivel ejecutivo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warn" style="background:rgba(245,166,35,.08);border-color:rgba(245,166,35,.4)">💡 <b style="color:var(--gold-2)">El punto de fondo:</b> gobernar bien exige idoneidad y preparación para el cargo — un principio elemental de la buena administración pública. Una cosa es representar una causa social y otra muy distinta es estar lista para conducir la economía y el Estado de toda una nación. Cuando la propia fórmula vicepresidencial descalifica a los profesionales y a quienes estudiaron, no muestra un plan: muestra contra quién gobernaría.</div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section>
+  <div class="wrap reveal">
+    <div class="cta-final">
+      <h2>El <span class="gold">21 de junio</span>, Colombia elige entre dos caminos</h2>
+      <p>Cuatro años más del mismo modelo — más deuda, más inseguridad y un Estado que crece mientras la economía se encoge — o el rumbo de la <b style="color:var(--gold-2)">Patria Milagro</b>: seguridad con autoridad, un Estado eficiente y la abundancia que Colombia merece.</p>
+      <div class="hero-cta" style="justify-content:center;margin-top:24px">
+        <a href="#plan" class="btn btn-gold">Vuelve a leer el plan →</a>
+        <a href="#balance" class="btn btn-ghost">Repasa los hechos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUENTES -->
+<section id="fuentes">
+  <div class="wrap reveal">
+    <div class="eyebrow">Transparencia</div>
+    <h2 class="sec-title">Fuentes</h2>
+    <p class="sec-intro">Esta pieza se construyó sobre el cuaderno documental <em>«The Miracle of the Fatherland Government Plan»</em> (97 fuentes). Principales referencias:</p>
+    <ul class="src-list">
+      <li><b>PROPUESTAS-DEL-TIGRE.pdf</b> — Plan «Patria Milagro», Abelardo de la Espriella</li>
+      <li>«Patria Milagro: las propuestas de Abelardo de la Espriella» — El Nuevo Siglo</li>
+      <li>«¿Qué es la Patria Milagro?» — El Expediente</li>
+      <li>«Seguridad a la fuerza: la doctrina de Abelardo de la Espriella» — ERIS Intel</li>
+      <li>«Sus propuestas para salvar la salud y recuperar Colombia» — entrevista</li>
+      <li>Análisis comparativo de propuestas — Pontificia Universidad Javeriana</li>
+      <li>Colombia Country Report 2026 — BTI Transformation Index</li>
+      <li>Banco de la República — Informe de Política Monetaria, abril 2026</li>
+      <li>«La histórica emisión de deuda externa por US$4.950 millones» — El Colombiano</li>
+      <li>«Hospital de alta complejidad en La Guajira queda en veremos» — La FM</li>
+      <li>«Escándalo de corrupción en la UNGRD» — Wikipedia / Valora Analitik</li>
+      <li>Gustavo Petro · 2026 Colombian presidential election — Wikipedia</li>
+      <li>«Colombia ahead of the 2026 elections» — European Parliament · AS/COA</li>
+      <li>«Colombia define su futuro en un balotaje…» — La Mecha</li>
+      <li>«Abelardo de la Espriella El Tigre: arrasa…» — análisis de resultados</li>
+      <li>Defensoría del Pueblo · ACHC · Supersalud (cifras de salud 2025)</li>
+      <li><a class="newslink" href="https://www.elcolombiano.com/colombia/petro-rotacion-ministros-viceministros-gobierno-PH35892836" target="_blank" rel="noopener">El Colombiano — «65 ministros y 134 viceministros han pasado por el Gobierno»</a></li>
+      <li><a class="newslink" href="https://www.infobae.com/colombia/2025/08/07/gustavo-petro-impuso-marca-historica-van-57-ministros-en-sus-tres-anos-de-gobierno/" target="_blank" rel="noopener">Infobae — «Marca histórica: 57 ministros en tres años»</a></li>
+      <li><a class="newslink" href="https://www.eltiempo.com/politica/gobierno/gustavo-petro-ha-tenido-57-ministros-en-tres-anos-de-gobierno-asi-han-sido-los-cambios-de-gabinete-en-la-administracion-con-mas-relevos-3478803" target="_blank" rel="noopener">El Tiempo — «La administración con más relevos»</a></li>
+      <li><a class="newslink" href="https://www.infobae.com/colombia/2025/09/05/la-rotacion-sin-fin-el-inestable-gabinete-de-petro-cambia-en-promedio-un-ministro-cada-19-dias/" target="_blank" rel="noopener">Infobae — «Un ministro cada 19 días»</a></li>
+      <li><a class="newslink" href="https://www.elespectador.com/politica/gobierno-petro-hizo-20-cambios-en-el-gabinete-este-2025-van-57-ministros-en-todo-el-mandato-noticias-hoy/" target="_blank" rel="noopener">El Espectador — «20 cambios de gabinete solo en 2025»</a></li>
+      <li><a class="newslink" href="https://www.larepublica.co/especiales/los-ultimos-100-dias-de-petro/la-administracion-del-presidente-gustavo-petro-dejo-una-rotacion-de-65-ministros-y-134-viceministros-4379843" target="_blank" rel="noopener">La República — «Rotación de 65 ministros y 134 viceministros»</a></li>
+    </ul>
+
+    <p class="disclaimer">
+      <b>Naturaleza de esta pieza.</b> Este es un sitio de <b>apoyo ciudadano</b> a la candidatura de Abelardo de la Espriella; por lo tanto, su enfoque editorial es deliberadamente favorable a esa candidatura. Las cifras y citas entre comillas se transcriben de las fuentes señaladas y son verificables. Las preguntas y conclusiones son interpretación a partir de esos datos. Animamos a todo votante a consultar los programas de gobierno completos de ambos candidatos y a contrastar la información antes de decidir. El voto es libre, informado y secreto.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="visits"><span class="eye">👁️</span> <span id="visitCount">…</span> personas ya vieron este informe</div>
+  <div class="flag-line" style="max-width:200px;margin:0 auto 16px;border-radius:3px"></div>
+  Patria Milagro 2026 · Pieza informativa de apoyo ciudadano.<br>
+  Construido con fuentes verificables. Tu decisión es tuya y es libre.
+  <div style="margin-top:18px">
+    <a href="https://www.linkedin.com/in/juan-jos%C3%A9-salazar-ram%C3%ADrez-408973306/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;color:#cdd7e4;text-decoration:none;font-weight:700;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);padding:9px 16px;border-radius:30px">
+      <span style="color:#0a66c2;font-weight:900">in</span> Hecho por Juan José Salazar Ramírez · LinkedIn ↗
+    </a>
+  </div>
+</footer>
+
+<script>
+  // Countdown a la segunda vuelta: 21 jun 2026, 8:00 a.m.
+  const target = new Date("2026-06-21T08:00:00-05:00").getTime();
+  function tick(){
+    const now = Date.now();
+    let d = Math.max(0, target - now);
+    const days = Math.floor(d/86400000); d-=days*86400000;
+    const hrs = Math.floor(d/3600000); d-=hrs*3600000;
+    const min = Math.floor(d/60000); d-=min*60000;
+    const sec = Math.floor(d/1000);
+    const p=(n)=>String(n).padStart(2,'0');
+    document.getElementById('dd').textContent=days;
+    document.getElementById('hh').textContent=p(hrs);
+    document.getElementById('mm').textContent=p(min);
+    document.getElementById('ss').textContent=p(sec);
+  }
+  tick(); setInterval(tick,1000);
+
+  // Accordion de pilares
+  document.querySelectorAll('#pillars .p-head').forEach(h=>{
+    h.addEventListener('click',()=>h.parentElement.classList.toggle('open'));
+  });
+
+  // ---- Conteo animado de números (simula react-spring) ----
+  const easeOutCubic = p => 1 - Math.pow(1 - p, 3);
+  function countUp(el){
+    if(el.dataset.counted) return;
+    const raw = el.textContent.trim();
+    const m = raw.match(/-?\d[\d.]*(,\d+)?/);
+    if(!m){ el.dataset.counted='1'; return; }
+    const token = m[0];
+    const num = parseFloat(token.replace(/\./g,'').replace(',','.'));
+    if(isNaN(num)){ el.dataset.counted='1'; return; }
+    const prefix = raw.slice(0, m.index);
+    const suffix = raw.slice(m.index + token.length);
+    const decimals = token.includes(',') ? token.split(',')[1].length : 0;
+    // No animar años sueltos (p. ej. "2025")
+    if(!prefix && !suffix && decimals===0 && num>=1900 && num<=2100){ el.dataset.counted='1'; return; }
+    el.dataset.counted='1';
+    const dur=1100, t0=performance.now();
+    const fmt=n=>n.toLocaleString('es-CO',{minimumFractionDigits:decimals,maximumFractionDigits:decimals});
+    (function step(t){
+      const p=Math.min(1,(t-t0)/dur);
+      el.textContent = prefix + fmt(num*easeOutCubic(p)) + suffix;
+      if(p<1) requestAnimationFrame(step); else el.textContent = raw;
+    })(performance.now());
+  }
+  function countUpIn(root){
+    root.querySelectorAll('.stat .n, .dnote .nn, .fact .big, .perhab .res .big, .bar-val').forEach(countUp);
+  }
+
+  // Reveal + barras + conteo
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        countUpIn(e.target);
+        if(e.target.id==='deuda'){
+          document.querySelectorAll('#bars .bar').forEach(b=>{ b.style.height=b.dataset.h+'%'; });
+        }
+        if(e.target.id==='gabinete'){
+          document.querySelectorAll('#gabBars .bar').forEach(b=>{ b.style.height=b.dataset.h+'%'; });
+        }
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // observar secciones con barras animadas
+  io.observe(document.getElementById('deuda'));
+  io.observe(document.getElementById('gabinete'));
+
+  // ---- Contador de visitas (GitHub Pages) con conteo animado ----
+  (function(){
+    const el = document.getElementById('visitCount');
+    const NS = 'abelardo-patria-milagro', KEY = 'visitas';
+    function show(n){
+      const t0=performance.now(), dur=1200;
+      (function step(t){
+        const p=Math.min(1,(t-t0)/dur);
+        el.textContent = Math.floor(n*(1-Math.pow(1-p,3))).toLocaleString('es-CO');
+        if(p<1) requestAnimationFrame(step); else el.textContent = n.toLocaleString('es-CO');
+      })(performance.now());
+    }
+    fetch(`https://api.counterapi.dev/v1/${NS}/${KEY}/up`)
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => show(Number(d.count ?? d.value ?? 0)))
+      .catch(() => {
+        let n = parseInt(localStorage.getItem('pm_visits') || '0', 10) + 1;
+        localStorage.setItem('pm_visits', String(n));
+        show(n);
+      });
+  })();
+</script>
+</body>
+</html>
